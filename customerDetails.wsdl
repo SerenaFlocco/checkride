@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://ibm.com/CustomerDetails/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ibm.com/CustomerDetails" targetNamespace="http://ibm.com/CustomerDetails">
+  <wsdl:types>
+    <xs:schema xmlns:tns="http://ibm.com/CustomerDetails/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://ibm.com/CustomerDetails/">
+    <xs:complexType name="customer_details">
+        <xs:sequence>
+            <xs:element name="service_header">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="brand" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="personal_details">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="name_details">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="first_name">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:maxLength value="25"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="last_name">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:maxLength value="25"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                        <xs:element name="contact_details">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="phone">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:pattern value="[0-9]{3}-[0-9]{7}"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="address">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:maxLength value="100"/>
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="customerDetailsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="customer_details" type="tns:customer_details"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="customerDetailsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status" type="xs:string"/>
+                <xs:element name="customer_id" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="customerDetailsResponse">
+    <wsdl:part element="sch:customerDetailsResponse" name="customerDetailsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="customerDetailsRequest">
+    <wsdl:part element="sch:customerDetailsRequest" name="customerDetailsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CustomerDetailsPort">
+    <wsdl:operation name="customerDetails">
+      <wsdl:input message="tns:customerDetailsRequest" name="customerDetailsRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:customerDetailsResponse" name="customerDetailsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomerDetailsPortSoap11" type="tns:CustomerDetailsPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="customerDetails">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="customerDetailsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="customerDetailsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CustomerDetailsPortService">
+    <wsdl:port binding="tns:CustomerDetailsPortSoap11" name="CustomerDetailsPortSoap11">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

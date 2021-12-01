@@ -1,0 +1,43 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ibm.com/CustomerDetails/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="customerDetailsRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="customer_details">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="service_header">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="xs:string" name="brand"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="personal_details">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name_details">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="first_name"/>
+                          <xs:element type="xs:string" name="last_name"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="contact_details">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:string" name="phone"/>
+                          <xs:element type="xs:string" name="address"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

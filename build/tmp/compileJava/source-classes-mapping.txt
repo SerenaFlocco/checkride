@@ -1,0 +1,20 @@
+com/ibm/customerdetails/package-info.java
+ com.ibm.customerdetails.package-info
+com/ibm/csm/refarch/ace/WebServiceConfig.java
+ com.ibm.csm.refarch.ace.WebServiceConfig
+com/ibm/customerdetails/CustomerDetailsRequest.java
+ com.ibm.customerdetails.CustomerDetailsRequest
+com/ibm/customerdetails/ObjectFactory.java
+ com.ibm.customerdetails.ObjectFactory
+com/ibm/customerdetails/CustomerDetails.java
+ com.ibm.customerdetails.CustomerDetails
+ com.ibm.customerdetails.CustomerDetails$PersonalDetails
+ com.ibm.customerdetails.CustomerDetails$PersonalDetails$ContactDetails
+ com.ibm.customerdetails.CustomerDetails$PersonalDetails$NameDetails
+ com.ibm.customerdetails.CustomerDetails$ServiceHeader
+com/ibm/customerdetails/CustomerDetailsResponse.java
+ com.ibm.customerdetails.CustomerDetailsResponse
+com/ibm/csm/refarch/ace/CustomerDetailsWebServiceApplication.java
+ com.ibm.csm.refarch.ace.CustomerDetailsWebServiceApplication
+com/ibm/csm/refarch/ace/CustomerDetailsEndpoint.java
+ com.ibm.csm.refarch.ace.CustomerDetailsEndpoint

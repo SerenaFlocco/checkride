@@ -1,0 +1,9 @@
+server:
+  port: 8443
+  ssl:
+    enabled: true
+    key-store: ${client.ssl.key-store}
+    key-store-password: ${client.ssl.key-store-password}
+    trust-store: ${client.ssl.trust-store}
+    trust-store-password: ${client.ssl.trust-store-password}
+    client-auth: need
