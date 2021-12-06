@@ -5,7 +5,7 @@ set -e
 source common.sh
 source env.sh
 
-openshift_registry=$(oc -n openshift-image-registry get routes default-route -o jsonpath='{.spec.host}' --validate=false)
+openshift_registry=$(oc -n openshift-image-registry get routes default-route -o jsonpath='{.spec.host}')
 
 docker login $openshift_registry --username oc --password $(oc whoami -t)
 
